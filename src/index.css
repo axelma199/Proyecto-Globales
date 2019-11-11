@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#RBS-Scheduler-root{
+  position: absolute !important;
+  margin-left: 10px;
+  left: 0
+}

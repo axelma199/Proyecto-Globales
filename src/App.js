@@ -7,7 +7,7 @@ import Header from './Components/Header';
  render() {
     let links = [
         { label: 'Home', link: '../MainPage', active: true },
-        { label: 'Calendario', link: '#portfolio' },
+        { label: 'Calendario', link: './Calendar' },
         { label: 'Clientes', link: '../ListCustomer' },
         { label: 'Pedidos', link: '#portfolio' },
         { label: 'Productos', link: '#contact-us' },

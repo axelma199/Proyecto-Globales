@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
  // Our all component files
  import ListCustomer from '../Components/ListCustomer';
+ import Calendar from '../Components/Calendar'
  import AddCustomer from '../Components/AddCustomer';
  import EditCustomer from '../Components/EditCustomer';
  import MainPage from '../Components/MainPage';
@@ -22,6 +23,7 @@ import React, { Component } from 'react';
  <Route path='/editcustomer/:id' component={EditCustomer} />
  <Route path='/addcustomer' component={AddCustomer} />
   <Route path='/MainPage' component={MainPage} />
+  <Route path='/calendar' component={Calendar}/>
  </Switch>
  </main>
  );
