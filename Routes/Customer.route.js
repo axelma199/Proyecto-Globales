@@ -9,14 +9,14 @@
  let customerModel = require('../Model/Customer');
  
  customerRoute.route('/findcustomer/:id').get(function (req, res) {
-  customerModel.find({ id: req.params.id },function (err, customer) {
+ customerModel.find({ id: req.params.id },function (err, customer) {
         console.log({ _id: req.params.id });
 
     if (err) {
         console.log(err);
     }
-    else {
-      //  res.json();
+    else { 
+
       res.json( customer);
 
     }

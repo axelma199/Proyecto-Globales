@@ -1,0 +1,123 @@
+import React, { Component } from 'react';
+ import axios from 'axios';
+ 
+ const customStyle = {
+ width: '300px',
+ margin: '0 auto',
+ backgroundColor: '#F8F5EF', 
+ //border: '5px solid black'
+ }
+ 
+ class AddProduct extends Component {
+ constructor(props) {
+ super(props);
+ this.state = {
+ id:'',    
+ name: '',
+ price: '',
+ quantity: '',
+ description: ''
+ }
+ }
+ 
+ // When value changes of the fields
+ handleChange = (event) => {
+ this.setState({ [event.target.name]: event.target.value });
+ }
+ 
+ // To add new customer when user submits the form
+ handleSubmit = (event) => {
+ event.preventDefault();
+ const { id, name, price, quantity, description } = this.state;
+ axios.post('http://localhost:3001/products/addProduct', {
+  id: id,
+  name: name,
+  price: price,
+  quantity: quantity,
+  description: description,
+ })
+ .then((response) => {
+ console.log(response);
+ this.props.history.push('/');
+ })
+ .catch((error) => {
+ console.log(error);
+ });
+ }
+ 
+ render() {
+ return (
+ <div className="container">
+  <form style={customStyle} onSubmit={this.handleSubmit}>
+  <h3> Nuevo Producto</h3>
+
+ 
+ <br />
+ <label>
+Código
+ <input
+ name="id"
+ type="text"
+ value={this.state.id}
+ onChange={this.handleChange}
+ className="form-control"
+ />
+ </label>
+ <br />
+ <label>
+ Nombre
+ <input
+ name="name"
+ type="text"
+ value={this.state.name}
+ onChange={this.handleChange}
+ className="form-control"
+ />
+ </label>
+ <br />
+ <label>
+Precio
+ <input
+ name="price"
+ type="number"
+ value={this.state.price}
+ onChange={this.handleChange}
+ className="form-control"
+ />
+ </label>
+ <br />
+ <label>
+Cantidad
+ <input
+ name="quantity"
+ type="number"
+ value={this.state.quantity}
+ onChange={this.handleChange}
+ className="form-control"
+ />
+ </label>
+ <br />
+ <label>
+Descripción
+ <input
+ name="description"
+ type="text"
+ value={this.state.description}
+ onChange={this.handleChange}
+ className="form-control"
+ />
+ </label>
+ <br />
+
+ <input
+ type="submit"
+ value="submit"
+ className="btn btn-primary"
+ />
+ </form>
+ </div>
+ );
+ }
+ }
+
+ export default AddProduct;
